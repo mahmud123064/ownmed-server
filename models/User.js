@@ -10,27 +10,27 @@ const userSchema = new mongoose.Schema(
             type: String,
             required: true,
             unique: true,
-            lowercase: true,
         },
         password: {
             type: String,
-            required: true,
         },
         phone: {
             type: String,
-            required: true,
-        },
-        role: {
-            type: String,
-            enum: ["hospital_owner", "doctor", "user","pharmacy_owner"],
-            required: true,
         },
         profileImage: {
             type: String,
-            required: true,
+        },
+        role: {
+            type: String,
+            default: "user",
+        },
+        authProvider: {
+            type: String,
+            enum: ["local", "google"],
+            default: "local",
         },
     },
-    { timestamps: true }
+    { timestamps: true },
 );
 
 export default mongoose.model("User", userSchema);

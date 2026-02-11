@@ -55,6 +55,7 @@ import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
 import authRoutes from "./routes/auth.routes.js";
+import testRoutes from "./routes/test.routes.js";
 import "dotenv/config";
 
 const app = express();
@@ -62,9 +63,10 @@ const port = 3000;
 
 // Middleware
 app.use(cors());
-app.use(express.json()); // parse JSON bodies
+app.use(express.json());
 
 // Routes
+app.use("/api/test", testRoutes);
 app.use("/api/auth", authRoutes);
 
 // MongoDB URI
