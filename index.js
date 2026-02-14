@@ -69,6 +69,10 @@ app.use(express.json());
 app.use("/api/test", testRoutes);
 app.use("/api/auth", authRoutes);
 
+console.log("DB_USER:", "hspmawjjnqghojoi");
+console.log("EMAIL_USER:", "zmahmud26@gmail.com");
+
+
 // MongoDB URI
 const dbUri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.grroqbl.mongodb.net/ownMed?retryWrites=true&w=majority`;
 
