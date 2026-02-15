@@ -16,9 +16,8 @@ const transporter = nodemailer.createTransport({
         pass: "hspmawjjnqghojoi",
     },
 });
-console.log("EMAIL_USER:", "zmahmud26@gmail.com");
-console.log("EMAIL_PASS:", "hspmawjjnqghojoi");
-
+// console.log("EMAIL_USER:", "zmahmud26@gmail.com");
+// console.log("EMAIL_PASS:", "hspmawjjnqghojoi");
 
 // email verification
 export const verifyEmail = async (req, res) => {
@@ -103,7 +102,6 @@ export const signup = async (req, res) => {
     }
 };
 
-
 // signIn
 
 export const login = async (req, res) => {
@@ -164,8 +162,6 @@ export const login = async (req, res) => {
         res.status(500).json({ message: "Server error" });
     }
 };
-
-
 
 // google signIn
 export const googleLogin = async (req, res) => {
@@ -244,10 +240,10 @@ export const forgotPassword = async (req, res) => {
             to: user.email,
             subject: "Password Reset",
             html: `
-        <h2>Password Reset</h2>
-        <p>Click below to reset your password:</p>
-        <a href="${resetUrl}">${resetUrl}</a>
-      `,
+            <h2>Password Reset</h2>
+            <p>Click below to reset your password:</p>
+            <a href="${resetUrl}">${resetUrl}</a>
+    `,
         });
 
         res.json({ message: "Reset link sent to email" });
@@ -255,7 +251,6 @@ export const forgotPassword = async (req, res) => {
         res.status(500).json({ message: "Server error" });
     }
 };
-
 
 // RESET PASSWORD
 
@@ -285,4 +280,3 @@ export const resetPassword = async (req, res) => {
         res.status(400).json({ message: "Invalid or expired token" });
     }
 };
-
