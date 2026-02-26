@@ -16,8 +16,6 @@ const transporter = nodemailer.createTransport({
         pass: "hspmawjjnqghojoi",
     },
 });
-// console.log("EMAIL_USER:", "zmahmud26@gmail.com");
-// console.log("EMAIL_PASS:", "hspmawjjnqghojoi");
 
 // email verification
 export const verifyEmail = async (req, res) => {
@@ -69,7 +67,7 @@ export const signup = async (req, res) => {
             profileImage,
         });
 
-        // 🔹 Generate verification token
+        // Generate verification token
         const verificationToken = jwt.sign(
             { id: user._id },
             process.env.JWT_SECRET,
